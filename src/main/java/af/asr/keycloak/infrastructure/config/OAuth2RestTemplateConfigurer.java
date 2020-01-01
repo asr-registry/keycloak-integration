@@ -1,6 +1,5 @@
 package af.asr.keycloak.infrastructure.config;
 
-import org.arun.springoauth.config.OAuth2RestTemplateConfigurer.ServiceAccountEnabled;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.AllNestedConditions;
@@ -12,7 +11,7 @@ import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 
 /**
- * OAuth2RestTemplateConfigurer is to create a bean of type {@link OAuth2RestTemplate}.
+ * OAuth2RestTemplateConfigurer is to create a bean of type {@link OAuth2RestTemplateConfigurer}.
  * <p>
  *   This configurer is run only when following properties are set in application.properties.
  * </p>
@@ -21,8 +20,8 @@ import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResour
  *   <code>security.oauth2.client.grant-type=client_credentials</code>
  *
  */
-@Configuration
-@Conditional(value = {ServiceAccountEnabled.class})
+//@Configuration
+//@Conditional(value = {OAuth2RestTemplateConfigurer.ServiceAccountEnabled.class})
 public class OAuth2RestTemplateConfigurer {
 
     private static final Logger LOG = LoggerFactory.getLogger(OAuth2RestTemplateConfigurer.class);

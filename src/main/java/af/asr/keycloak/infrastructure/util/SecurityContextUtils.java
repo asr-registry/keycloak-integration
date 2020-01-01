@@ -2,6 +2,7 @@ package af.asr.keycloak.infrastructure.util;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
