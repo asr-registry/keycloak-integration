@@ -1,4 +1,4 @@
-package af.asr.keycloak.infrastructure;
+package af.asr.keycloak.infrastructure.config;
 
 import org.keycloak.adapters.KeycloakDeployment;
 import org.keycloak.adapters.KeycloakDeploymentBuilder;

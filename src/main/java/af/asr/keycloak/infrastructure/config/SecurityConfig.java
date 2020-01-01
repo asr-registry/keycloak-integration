@@ -1,4 +1,4 @@
-package af.asr.keycloak.infrastructure;
+package af.asr.keycloak.infrastructure.config;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootProperties;
