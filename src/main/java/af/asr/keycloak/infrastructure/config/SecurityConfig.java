@@ -10,12 +10,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy;
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
 
 @KeycloakConfiguration
 class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
+
+    private static final String[] AUTH_WHITE_LIST = {
+            "/api/login",
+    };
 
     /**
      * Registers the KeycloakAuthenticationProvider with the authentication manager.
@@ -51,9 +56,12 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
+        http.cors().and().csrf().disable();
+        http.antMatcher("/**").authorizeRequests().antMatchers(AUTH_WHITE_LIST).permitAll().anyRequest()
+                .authenticated().and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
         super.configure(http);
-        http.authorizeRequests()
-                .antMatchers("/**").authenticated()
-                .anyRequest().authenticated();
     }
 }
